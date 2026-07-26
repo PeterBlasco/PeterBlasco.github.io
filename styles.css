@@ -1,0 +1,201 @@
+/* ── Design tokens ─────────────────────────────────────── */
+:root {
+  --bg:        #fbfbfa;
+  --surface:   #ffffff;
+  --border:    #e5e3df;
+  --text:      #1c1b19;
+  --text-soft: #6b6862;
+  --accent:    #b4551f;
+  --accent-bg: #f5ece5;
+
+  --radius: 10px;
+  --measure: 42rem;
+  --font: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #161513;
+    --surface:   #1e1d1a;
+    --border:    #33312d;
+    --text:      #edeae4;
+    --text-soft: #9d988f;
+    --accent:    #e08b57;
+    --accent-bg: #2a231d;
+  }
+}
+
+/* Explicit toggle always wins over the media query. */
+:root[data-theme="light"] {
+  --bg: #fbfbfa; --surface: #ffffff; --border: #e5e3df;
+  --text: #1c1b19; --text-soft: #6b6862;
+  --accent: #b4551f; --accent-bg: #f5ece5;
+}
+:root[data-theme="dark"] {
+  --bg: #161513; --surface: #1e1d1a; --border: #33312d;
+  --text: #edeae4; --text-soft: #9d988f;
+  --accent: #e08b57; --accent-bg: #2a231d;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 1.5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { max-width: var(--measure); margin: 0 auto; padding: 5rem 0 3rem; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0; font-weight: 640; letter-spacing: -0.02em; }
+p { margin: 0 0 1rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Intro ─────────────────────────────────────────────── */
+.intro h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
+
+.tagline {
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  margin: 0.6rem 0 1.75rem;
+  max-width: 34rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 520;
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+
+.link-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.link-pill svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.link-pill svg[stroke] { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── Sections ──────────────────────────────────────────── */
+.section { margin-top: 3.5rem; }
+
+.section > h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-soft);
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Projects ──────────────────────────────────────────── */
+.project-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.75rem; }
+
+.project-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.project h3 { font-size: 1.05rem; }
+.project h3 a { color: var(--text); }
+.project h3 a:hover { color: var(--accent); }
+
+.year { font-family: var(--mono); font-size: 0.8rem; color: var(--text-soft); flex: none; }
+
+.project p { color: var(--text-soft); margin: 0 0 0.6rem; }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; }
+
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 5px;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+footer p { margin: 0; }
+
+/* ── Theme toggle ──────────────────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+.theme-toggle svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Show exactly one icon: the one for the theme you'd switch *to*. */
+.icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  .icon-sun { display: none; }
+  .icon-moon { display: block; }
+}
+:root[data-theme="light"] .icon-sun  { display: block; }
+:root[data-theme="light"] .icon-moon { display: none; }
+:root[data-theme="dark"]  .icon-sun  { display: none; }
+:root[data-theme="dark"]  .icon-moon { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
