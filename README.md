@@ -22,7 +22,6 @@ Then visit http://localhost:8000
 
 ## Still to fill in
 
-- `linkedin.com/in/yourhandle` in `index.html` — real LinkedIn URL
 - The Projects section is a placeholder. Real entries go in a
   `<ul class="project-list">`; the styles for `.project`, `.year`, and `.tags`
   are already in `styles.css`.
