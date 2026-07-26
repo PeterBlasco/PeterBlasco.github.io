@@ -9,7 +9,6 @@ Static site — plain HTML, CSS, and a few lines of JS. No build step, no depend
 | `index.html` | All the content: intro, links, about, projects |
 | `styles.css` | Design tokens at the top (`:root`), then layout |
 | `main.js` | Theme toggle + footer year |
-| `resume.pdf` | Drop your resume here — the Resume link points at it |
 
 ## Run locally
 
@@ -21,14 +20,12 @@ python -m http.server 8000
 
 Then visit http://localhost:8000
 
-## Fill in
+## Still to fill in
 
-Search `index.html` for these and replace:
-
-- `Your Name` — appears in the title, `<h1>`, and footer
-- `yourhandle` — GitHub, LinkedIn, X URLs
-- `you@example.com` — the mailto link
-- The tagline, About paragraph, and the three project entries
+- `linkedin.com/in/yourhandle` in `index.html` — real LinkedIn URL
+- The Projects section is a placeholder. Real entries go in a
+  `<ul class="project-list">`; the styles for `.project`, `.year`, and `.tags`
+  are already in `styles.css`.
 
 Colors live in the `:root` block of `styles.css` — change `--accent` to recolor
 the whole site. Dark mode has its own values in the `prefers-color-scheme` block.
