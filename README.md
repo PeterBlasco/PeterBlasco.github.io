@@ -9,6 +9,7 @@ Static site — plain HTML, CSS, and a few lines of JS. No build step, no depend
 | `index.html` | All the content: intro, links, about, projects |
 | `styles.css` | Design tokens at the top (`:root`), then layout |
 | `main.js` | Theme toggle + footer year |
+| `images/` | Site images. `profile.jpg` is the header banner |
 
 ## Run locally
 
