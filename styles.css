@@ -131,6 +131,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border-bottom: 1px solid var(--border);
 }
 
+/* Prose bullet list. Scoped to its own class because .tags is a ul too, and a bare
+   ul rule would fight it. */
+.prose-list {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+}
+
+.prose-list li {
+  margin-bottom: 0.4rem;
+}
+
 .placeholder {
   color: var(--text-soft);
   font-family: var(--mono);
