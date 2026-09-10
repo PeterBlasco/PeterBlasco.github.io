@@ -43,11 +43,17 @@
       <p>
         The app saves the games you score: the names you type for players, their colours and turn
         order, the scores you enter, and — for Settlers of Catan — the dice rolls and robber
-        events you log. It also remembers your setup preferences, such as the points target.
+        events you log. It also remembers your setup preferences, such as the points target, and
+        whatever you have left sitting in the tools.
       </p>
       <p>
         All of this is written to the app's own private storage on your device. Other apps cannot
-        read it. None of it leaves the device.
+        read it, and the app itself never sends it anywhere — it holds no internet permission, so
+        it could not if it wanted to.
+      </p>
+      <p>
+        There are exactly two ways that data moves off the device, and neither is the app sending
+        it. You can export it yourself, and Android can back it up. Both are described below.
       </p>
       <p>
         Player names are whatever you choose to type. They are labels on a scoreboard, and the app
@@ -63,9 +69,42 @@
         <li>No analytics, telemetry, or crash reporting.</li>
         <li>No advertising, and no advertising identifiers.</li>
         <li>No accounts, sign-in, or cloud sync.</li>
-        <li>No access to your contacts, location, camera, microphone, photos, or files.</li>
+        <li>No access to your contacts, location, camera, microphone or photos.</li>
+        <li>
+          No browsing of your files. Exporting and restoring a backup goes through Android's own
+          document picker, which hands the app one file that you chose and nothing else.
+        </li>
         <li>Nothing is shared with third parties, because nothing is collected.</li>
       </ul>
+    </section>
+
+    <section class="section">
+      <h2>Exporting a backup</h2>
+      <p>
+        Settings can write every saved game to a single file, and read one back. You choose where
+        that file goes through Android's document picker — your Google Drive, your Files app, a
+        memory card, a message to yourself — and the app never learns where that is. It has no
+        network permission, so it cannot put the file anywhere itself.
+      </p>
+      <p>
+        Once the file exists it is yours and it is outside the app. Whatever you have sent it to is
+        governed by that service's terms rather than by this policy. The file is plain readable
+        JSON, so you can open it and see exactly what it contains.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Android's own backup</h2>
+      <p>
+        If backup is switched on for your device, Android copies this app's stored data to your
+        Google account on its own schedule and restores it when you reinstall on a new phone. That
+        is the operating system doing it rather than the app, it is governed by Google's terms and
+        your device settings, and you can turn it off in your phone's own backup settings.
+      </p>
+      <p>
+        It is described here because "nothing leaves the device" would otherwise be inaccurate, and
+        this policy would rather be exact than reassuring.
+      </p>
     </section>
 
     <section class="section">
@@ -90,7 +129,9 @@
       </p>
       <p>
         If your device backs up app data to your Google account, that backup is governed by
-        Google's terms and your own device settings rather than by this app.
+        Google's terms and your own device settings rather than by this app. Any backup file you
+        exported yourself is a file like any other, and deleting it is up to you and wherever you
+        put it.
       </p>
     </section>
 
@@ -109,7 +150,7 @@
         updated before that version is released, and the change will be described here rather than
         made quietly.
       </p>
-      <p class="placeholder">Last updated 25 August 2026.</p>
+      <p class="placeholder">Last updated 9 September 2026.</p>
     </section>
 
     <section class="section">
